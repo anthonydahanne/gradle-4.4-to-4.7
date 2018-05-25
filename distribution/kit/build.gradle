@@ -1,0 +1,16 @@
+apply plugin: 'distribution'
+
+def commonDistSpec = {
+
+  into('client/ehcache/javadoc') {
+    from project(':terracotta-ehcache-client').javadocJar
+  }
+
+}
+
+
+distributions {
+  main {
+    contents ({} << commonDistSpec)
+  }
+}
